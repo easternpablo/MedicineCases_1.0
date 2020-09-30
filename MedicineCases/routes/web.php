@@ -11,6 +11,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', [App\Http\Controllers\InicioController::class, 'index']);
-
+    Route::get('/inicio', [App\Http\Controllers\InicioController::class, 'index']);
+    Route::get('/apuntes', [App\Http\Controllers\NotesController::class, 'index']);
+    Route::get('/quienes-somos', [App\Http\Controllers\AboutUsController::class, 'index']);
 });

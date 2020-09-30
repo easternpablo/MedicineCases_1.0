@@ -5,47 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio - Diario de Guardia</title>
-    <link rel="icon" href="{{url('img/iconoApp.png')}}"/>
+    <link rel="icon" href="{{url('img/logo.jpeg')}}"/>
     <link rel="stylesheet" href="{{ asset('plugins/Bootstrap/css/bootstrap.min.css') }}"/>
-    <link rel="stylesheet" href="{{url('css/master.css')}}"/>
+    <link rel="stylesheet" href="{{ url('css/master.css') }}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="vertical-nav bg-white" id="sidebar">
+<div class="vertical-nav" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
         <div class="media d-flex align-items-center">
-            <img src="{{ url('img/Perfil.png') }}" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-            <div class="media-body">
-                <h4 class="m-0">Pablo Vilches</h4>
-                <p class="font-weight-light text-muted mb-0">Desarrollador Web</p>
-            </div>
+            <img src="{{ url('img/logo.jpeg') }}" alt="..." width="200" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         </div>
     </div>
-    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Principal</p>
-    <ul class="nav flex-column bg-white mb-0">
+    <p class="text-white font-weight-bold text-uppercase px-3 small pb-4 mb-0">Principal</p>
+    <ul id="options" class="nav flex-column mb-0">
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic bg-light">
-              <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>Inicio
-            </a>
+            <a href="{{ url('/inicio') }}" class="nav-link text-white font-italic">Inicio</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
-              <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>Quiénes Somos
-            </a>
+            <a href="{{ url('/quienes-somos') }}" class="nav-link text-white font-italic">Quiénes Somos</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
-              <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>Apuntes
-            </a>
+            <a href="{{ url('/apuntes') }}" class="nav-link text-white font-italic">Apuntes</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
-              <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>Contacto
-            </a>
+            <a href="#" class="nav-link text-white font-italic">Contacto</a>
         </li>
         <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
             <form action="{{ url('/logout') }}" method="POST" style="display:inline">
                 @csrf
-                <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer;">
+                <button type="submit" class="btn btn-link nav-link text-bold text-white" style="display:inline;cursor:pointer;">
                     Cerrar sesión
                 </button>
             </form>
@@ -54,21 +43,14 @@
 </div>
 <div class="page-content p-5" id="content">
     <!-- Toggle button -->
-    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4">
+    <button id="sidebarCollapse" type="button" class="btn btn-light rounded-pill shadow-sm px-4 mb-4">
         <i class="fa fa-bars mr-2"></i>
-        <small class="text-uppercase font-weight-bold">Toggle</small>
+        <small class="text-uppercase font-weight-bold">Mostrar</small>
     </button>
     <!-- Demo content -->
-    <h2 class="display-4 text-white">Diario de Guardia: Apuntes de medicina intensiva</h2>
-    <p class="lead text-white mb-0">Build a fixed sidebar using Bootstrap 4 vertical navigation
-        and media objects.</p>
-    <p class="lead text-white">Snippet by
-        <a href="https://bootstrapious.com/snippets" class="text-white">
-            <u>Bootstrapious</u>
-        </a>
-    </p>
+    <h2 class="display-4 text-center">Diario de Guardia: Apuntes de Medicina Intensiva</h2>
     <div class="separator"></div>
-    <div class="row text-white">
+    <div class="row">
       <div class="col-lg-7">
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -81,7 +63,7 @@
             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
             aute irure dolor.</p>
         <div class="bg-white p-5 rounded my-5 shadow-sm">
-          <p class="lead font-italic mb-0 text-muted">"Lorem ipsum dolor sit amet, consectetur
+          <p class="lead font-italic mb-0">"Lorem ipsum dolor sit amet, consectetur
               adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
               commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
