@@ -21,6 +21,20 @@
       color: black;
   }
 
+.badge, .btnAgregar{
+    background-color: rgba(5, 2, 78);
+    color: white;
+    text-decoration: none;
+}
+
+.btnAgregar:hover{
+    color: grey;
+}
+
+  h3.tituloEntrada{
+    font-family: 'Monofett', cursive;
+  }
+
   #options{
         background-color: rgba(5, 2, 78);
   }

@@ -14,13 +14,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        if(Auth::check()){
-            $role_id = Auth::user()->role_id;
-            if($role_id === 1){
-                return view('inicio');
-            }
-        }else{
-            return view('home');
-        }
+        if(Auth::check())
+            return view('inicio');
+        return view('home');
     }
 }

@@ -7,9 +7,9 @@
     <title>@yield('titulo') - Diario de Guardia</title>
     <link rel="icon" href="{{url('img/logo.jpeg')}}"/>
     <link rel="stylesheet" href="{{ asset('plugins/Bootstrap/css/bootstrap.min.css') }}"/>
-    <link rel="stylesheet" href="{{ url('css/master.css') }}"/>
     <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('css/master.css') }}"/>
 </head>
 <body>
 <div class="vertical-nav bg-white" id="sidebar">
@@ -18,19 +18,21 @@
             <img src="{{ url('img/logo.jpeg') }}" alt="..." width="200" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         </div>
     </div>
-    <p class="text-white font-weight-bold text-uppercase px-3 small pb-4 mb-0">Principal</p>
+    @if(Route::has('login'))
+        @auth
+            <p class="text-white font-weight-bold text-uppercase px-3 small pb-4 mb-0">
+                Bienvenido: {{ auth()->user()->username }}
+            </p>
+        @endauth
+    @endif
     <ul class="nav flex-column mb-0">
         <li class="nav-item">
-            <a href="{{ url('/inicio') }}" class="nav-link text-white font-italic">
+            <a href="{{ url('/') }}" class="nav-link text-white font-italic">
             Inicio</a>
         </li>
         <li class="nav-item">
             <a href="{{ url('/quienes-somos') }}" class="nav-link text-white font-italic">
-            Quiénes Somos</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ url('/apuntes') }}" class="nav-link text-white font-italic">
-            Apuntes</a>
+            Quiénes somos</a>
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link text-white font-italic">

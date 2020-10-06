@@ -10,7 +10,7 @@ class AddNotes extends Migration
     {
         Schema::table('notes', function (Blueprint $table) {
             $table->unsignedBigInteger('type_id')->after('file');
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
         });
     }
 
