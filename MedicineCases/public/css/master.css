@@ -8,18 +8,16 @@
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     background-color: rgba(5, 2, 78) !important;
     transition: all 0.4s;
-  }
+}
 
-  h2{
-     background-color: rgba(5, 2, 78);
-     color: white;
-     font: bold;
-     font-family: 'Wellfleet', cursive;
-  }
+h2{
+    background-color: rgba(5, 2, 78);
+    color: white;
+    font: bold;
+    font-family: 'Wellfleet', cursive;
+}
 
-  p{
-      color: black;
-  }
+p{color: black;}
 
 .badge, .btnAgregar{
     background-color: rgba(5, 2, 78);
@@ -27,40 +25,30 @@
     text-decoration: none;
 }
 
-.btnAgregar:hover{
-    color: grey;
-}
+.btnAgregar:hover{color: grey;}
 
-  h3.tituloEntrada{
-    font-family: 'Monofett', cursive;
-  }
+h3.tituloEntrada{font-family: 'Monofett', cursive;}
 
-  #options{
-        background-color: rgba(5, 2, 78);
-  }
+#options{background-color: rgba(5, 2, 78);}
 
-  .page-content {
+.page-content {
     width: calc(100% - 17rem);
     margin-left: 17rem;
     transition: all 0.4s;
-  }
+}
 
-  /* for toggle behavior */
+/* for toggle behavior */
 
-  #sidebar.active {
-    margin-left: -17rem;
-  }
+#sidebar.active {margin-left: -17rem;}
 
-  #content.active {
+#content.active {
     width: 100%;
     margin: 0;
-  }
+}
 
-  button #sidebarCollapse{
-      background-color: rgba(5, 2, 78);
-  }
+button #sidebarCollapse{background-color: rgba(5, 2, 78);}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     #sidebar {
       margin-left: -17rem;
     }
@@ -75,23 +63,18 @@
       margin-left: 17rem;
       width: calc(100% - 17rem);
     }
-  }
+}
 
-  body {
-    background: white;
+body {
     min-height: 100vh;
     overflow-x: hidden;
-  }
+}
 
-  .separator {
+.separator {
     margin: 3rem 0;
     border-bottom: 1px dashed #fff;
-  }
+}
 
-  .text-uppercase {
-    letter-spacing: 0.1em;
-  }
+.text-uppercase {letter-spacing: 0.1em;}
 
-  .text-gray {
-    color: black;
-  }
+.text-gray {color: black;}

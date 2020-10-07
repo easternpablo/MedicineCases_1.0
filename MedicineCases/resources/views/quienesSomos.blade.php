@@ -3,8 +3,7 @@
 
 @section('content')
 <h2 class="display-4 text-center">Quiénes Somos</h2>
-<div class="separator"></div>
-<div class="row">
+<div class="row mt-5">
     <p>Somos un equipo de Médicos Internos Residentes de Medicina Intensiva del hospital Reina Sofía de Córdoba
     comprometidos con la formación médica, la buena praxis y la bioética. Nuestro objetivo con esta herramienta
     web consiste en repasar, de forma esquemática, práctica y útil los aspectos más importantes de aquellos

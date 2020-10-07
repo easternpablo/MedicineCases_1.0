@@ -14,12 +14,14 @@ Route::group(['middleware' => 'auth'], function () {
     // Rutas Entradas
     Route::get('/entrada/nueva-entrada', [App\Http\Controllers\NotesController::class, 'create']);
     Route::post('/entrada/nueva-entrada/submit', [App\Http\Controllers\NotesController::class, 'save']);
+    Route::get('/entrada/inicio/delete/{id}', [App\Http\Controllers\NotesController::class, 'delete'])->where('id','[0-9]+');
     Route::get('/entrada/{filename}', [App\Http\Controllers\NotesController::class, 'getImage']);
     Route::get('/entrada/{pdf}', [App\Http\Controllers\NotesController::class, 'getPdf']);
     Route::get('/entrada/detalle/{id}', [App\Http\Controllers\NotesController::class, 'idDetalle'])->where('id','[0-9]+');
     // Rutas Categorías
     Route::get('/categoria/nueva-categoria', [App\Http\Controllers\TypeController::class, 'create']);
     Route::post('/categoria/nueva-categoria/submit', [App\Http\Controllers\TypeController::class, 'save']);
+    Route::get('/categoria/filtro/{id}', [App\Http\Controllers\TypeController::class, 'idType'])->where('id','[0-9]+');
     // Ruta Quiénes Somos
     Route::get('/quienes-somos', [App\Http\Controllers\AboutUsController::class, 'index']);
 });

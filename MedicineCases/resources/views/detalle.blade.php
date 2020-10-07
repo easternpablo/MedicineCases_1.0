@@ -4,8 +4,7 @@
 @section('content')
 <h2 class="display-4 text-center">{{ $note->name }}</h2>
 <h4>Categoría: <strong>{{ $note->type->name }}</strong></h4>
-<div class="separator"></div>
-<div class="row">
+<div class="row mt-5">
     <div class="col-3"></div>
     <div class="col-6">
         <img src="{{ url('/entrada',['image'=>$note->image]) }}" alt="Imagen {{ $note->name }}" height="350" width="350"/>

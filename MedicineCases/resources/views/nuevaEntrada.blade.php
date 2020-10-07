@@ -3,8 +3,7 @@
 
 @section('content')
 <h2 class="display-4 text-center">Nueva Entrada</h2>
-<div class="separator"></div>
-<div class="card">
+<div class="card mt-5">
     <div class="card-header">{{ __('Nueva Entrada') }}</div>
     <div class="card-body">
         <form method="POST" action="{{ url('/entrada/nueva-entrada/submit') }}" enctype="multipart/form-data">
@@ -16,7 +15,7 @@
             </div>
             <div class="row">
                 <label for="description" class="col-form-label text-md-right">{{ __('Descripción') }}</label>
-                <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus></textarea>
+                <textarea id="description" type="text" rows="4" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus></textarea>
                 @error('description')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
             </div>
             <div class="row">

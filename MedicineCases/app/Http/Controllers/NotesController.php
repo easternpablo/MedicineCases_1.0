@@ -46,9 +46,15 @@ class NotesController extends Controller
             Storage::disk('notes')->put($image_name,File::get($image_path));
             $note->image = $image_name;
         }
-        if($note->save()){
+        if($note->save())
             return redirect('/');
-        }
+    }
+
+    public function delete($id)
+    {
+        $note = Note::findOrFail($id);
+        if($note->delete())
+            return redirect('/');
     }
 
     public function getImage($filename)
