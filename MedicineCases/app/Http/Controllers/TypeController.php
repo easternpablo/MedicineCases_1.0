@@ -26,12 +26,12 @@ class TypeController extends Controller
                 ->select('notes.*')
                 ->where('notes.type_id','=',$id)
                 ->paginate(3);
-        return view('filtro',['notes'=>$notes, 'type'=>$type]);
+        return view('categorias.filtro',['notes'=>$notes, 'type'=>$type]);
     }
 
     public function create()
     {
-        return view('nuevoTipo');
+        return view('categorias.crear');
     }
 
     public function save(Request $request)

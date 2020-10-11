@@ -24,13 +24,13 @@ class NotesController extends Controller
     public function idDetalle($id)
     {
         $note = Note::with('type')->findOrFail($id);
-        return view('detalle',['note'=>$note]);
+        return view('entradas.detalle',['note'=>$note]);
     }
 
     public function create()
     {
         $types = Type::all();
-        return view('nuevaEntrada',['types'=>$types]);
+        return view('entradas.crear',['types'=>$types]);
     }
 
     public function save(Request $request)
@@ -50,6 +50,35 @@ class NotesController extends Controller
             return redirect('/');
     }
 
+    public function edit($id)
+    {
+        $note = Note::findOrFail($id);
+        $categories = Type::all();
+        $category_id = $note->type_id;
+        $category_note = Type::findOrFail($category_id);
+        return view('entradas.editar',['note'=>$note,
+                                       'categories'=>$categories,
+                                       'category_note'=>$category_note]);
+    }
+
+    public function saveEdit(Request $request, $id)
+    {
+        $note = Note::findOrFail($id);
+        $note->name = $request->input('name');
+        $note->description = $request->input('description');
+        $note->type_id = $request->get('type');
+        $image_path = $request->file('file-note');
+        if($image_path === null){
+            $note->image = $request->input('file-note-cambio');
+        }else{
+            $image_name = time().$image_path->getClientOriginalName();
+            Storage::disk('notes')->put($image_name,File::get($image_path));
+            $note->image = $image_name;
+        }
+        if($note->save())
+            return redirect('/');
+    }
+
     public function delete($id)
     {
         $note = Note::findOrFail($id);
@@ -60,12 +89,6 @@ class NotesController extends Controller
     public function getImage($filename)
     {
         $file = Storage::disk('notes')->get($filename);
-        return new Response($file,200);
-    }
-
-    public function getPdf($filename)
-    {
-        $file = Storage::disk('pdfs')->get($filename);
         return new Response($file,200);
     }
 }

@@ -2,10 +2,11 @@
 @section('titulo','Inicio')
 
 @section('content')
-<h2 class="display-4 text-center">Diario de Guardia: Apuntes de Medicina Intensiva</h2>
+<h2 class="display-4 text-center"><i class="fas fa-notes-medical mr-3 mt-2"></i>Diario de Guardia: Apuntes de Medicina Intensiva</h2>
 <div class="row mt-5">
     @foreach($categories as $category)
-        <a href="{{ url('/categoria/filtro',['id'=>$category->id]) }}" class="badge badge-secondary ml-2">{{ $category->name }}</a>
+        <a href="{{ url('/categoria/filtro',['id'=>$category->id]) }}" class="badge badge-secondary ml-2">
+        {{ $category->name }}</a>
     @endforeach
     @if(Route::has('login'))
         @auth
@@ -35,7 +36,7 @@
                 @if(Route::has('login'))
                     @auth
                         @if(auth()->user()->role_id === 1)
-                            <a href="#" class="btn btn-warning mt-2 ml-2">Editar</a>
+                            <a href="{{ url('/entrada/editar-entrada',['id'=>$note->id]) }}" class="btn btn-warning mt-2 ml-2">Editar</a>
                             <a href="{{ url('/entrada/inicio/delete',['id'=>$note->id]) }}" class="btn btn-danger mt-2 ml-2">Eliminar</a>
                         @endif
                     @endauth
@@ -56,9 +57,9 @@
         @endif
     </div>
     <div class="col-6">
-        <div class="clearfix mt-2">
+        <div class="clearfix mt-2 ml-5">
             {{ $notes->links() }}
         </div>
     </div>
 </div>
-@stop
+@endsection

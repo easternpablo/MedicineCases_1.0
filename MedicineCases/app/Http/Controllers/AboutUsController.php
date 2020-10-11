@@ -9,7 +9,6 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        $types = Type::all();
-        return view('quienesSomos', ['types'=>$types]);
+        return view('quienesSomos');
     }
 }

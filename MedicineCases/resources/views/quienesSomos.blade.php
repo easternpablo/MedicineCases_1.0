@@ -21,4 +21,4 @@
 <div class="row">
     <img src="{{ url('img/imgSomos.jpeg') }}" height="500" width="800"/>
 </div>
-@stop
+@endsection

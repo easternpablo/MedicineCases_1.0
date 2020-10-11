@@ -13,7 +13,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [App\Http\Controllers\InicioController::class, 'index']);
     // Rutas Entradas
     Route::get('/entrada/nueva-entrada', [App\Http\Controllers\NotesController::class, 'create']);
+    Route::get('/entrada/editar-entrada/{id}', [App\Http\Controllers\NotesController::class, 'edit'])->where('id','[0-9]+');
     Route::post('/entrada/nueva-entrada/submit', [App\Http\Controllers\NotesController::class, 'save']);
+    Route::post('/entrada/editar-entrada/submit/{id}', [App\Http\Controllers\NotesController::class, 'saveEdit'])->where('id','[0-9]+');
     Route::get('/entrada/inicio/delete/{id}', [App\Http\Controllers\NotesController::class, 'delete'])->where('id','[0-9]+');
     Route::get('/entrada/{filename}', [App\Http\Controllers\NotesController::class, 'getImage']);
     Route::get('/entrada/{pdf}', [App\Http\Controllers\NotesController::class, 'getPdf']);
@@ -24,4 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/categoria/filtro/{id}', [App\Http\Controllers\TypeController::class, 'idType'])->where('id','[0-9]+');
     // Ruta Quiénes Somos
     Route::get('/quienes-somos', [App\Http\Controllers\AboutUsController::class, 'index']);
+    // Ruta Contacto
+    Route::get('/contacto', [App\Http\Controllers\ContactController::class, 'index']);
 });

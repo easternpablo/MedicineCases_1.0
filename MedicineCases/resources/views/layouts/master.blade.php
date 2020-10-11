@@ -7,6 +7,7 @@
     <title>@yield('titulo') - Diario de Guardia</title>
     <link rel="icon" href="{{url('img/logo.jpeg')}}"/>
     <link rel="stylesheet" href="{{ asset('plugins/Bootstrap/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('plugins/Fontawesome/css/all.css') }}"/>
     <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('css/master.css') }}"/>
@@ -21,28 +22,28 @@
     @if(Route::has('login'))
         @auth
             <p class="text-white font-weight-bold text-uppercase px-3 small pb-4 mb-0">
-                Bienvenido: {{ auth()->user()->username }}
+                Bienvenido: {{ auth()->user()->username }} <i class="fas fa-user-md fa-2x white"></i>
             </p>
         @endauth
     @endif
     <ul class="nav flex-column mb-0">
         <li class="nav-item">
             <a href="{{ url('/') }}" class="nav-link text-white font-italic">
-            Inicio</a>
+            <i class="fas fa-home fa-1x mr-1"></i>Inicio</a>
         </li>
         <li class="nav-item">
             <a href="{{ url('/quienes-somos') }}" class="nav-link text-white font-italic">
-            Quiénes somos</a>
+            <i class="fas fa-users fa-1x mr-1"></i>Quiénes somos</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-white font-italic">
-            Contacto</a>
+            <a href="{{ url('/contacto') }}" class="nav-link text-white font-italic">
+            <i class="fas fa-at fa-1x mr-1"></i>Contacto</a>
         </li>
         <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
             <form action="{{ url('/logout') }}" method="POST" style="display:inline">
                 @csrf
-                <button type="submit" class="btn btn-link nav-link text-bold text-white" style="display:inline;cursor:pointer;">
-                    Cerrar sesión
+                <button type="submit" class="btn btn-link nav-link text-bold text-white" >
+                    <i class="fas fa-power-off fa-1x"></i> Cerrar sesión
                 </button>
             </form>
         </p>

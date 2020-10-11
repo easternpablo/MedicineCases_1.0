@@ -17,6 +17,14 @@ h2{
     font-family: 'Wellfleet', cursive;
 }
 
+i.fa-whatsapp-square {color: #28a745;}
+i.fa-facebook-square {color: #3B5998;}
+i.fa-twitter-square {color: #55ACEE;}
+i.fa-instagram-square {color: #125688;}
+i.fa-linkedin {color: #007bb5;}
+i.fa-youtube-square {color: #E00E0B;}
+i.fa-map-marker-alt {color: #0D9DBD;}
+
 p{color: black;}
 
 .badge, .btnAgregar{
