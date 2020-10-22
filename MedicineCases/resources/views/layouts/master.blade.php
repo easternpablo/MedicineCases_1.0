@@ -16,7 +16,7 @@
 <div class="vertical-nav bg-white" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
         <div class="media d-flex align-items-center">
-            <img src="{{ url('img/logo.jpeg') }}" alt="..." width="200" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            <img src="{{ url('img/logo.jpeg') }}" width="200" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         </div>
     </div>
     @if(Route::has('login'))
@@ -59,5 +59,9 @@
 <script src="{{ asset('plugins/Jquery/js/jquery-3.5.1.js') }}"></script>
 <script src="{{ url('js/master.js') }}"></script>
 <script src="{{ asset('plugins/Bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {$('.ckeditor').ckeditor();});
+</script>
 </body>
 </html>

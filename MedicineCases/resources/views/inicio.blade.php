@@ -18,15 +18,15 @@
 </div>
 <div class="row mt-2">
     @foreach($notes as $note)
-    <div class="card text-center mt-2 ml-5">
+    <div class="card text-center mt-2 ml-5" width="250" height="250">
         <div class="card-header">
-            <h3 class="tituloEntrada mr-2">{{ $note->name }}</h3>
+            <h5 class="tituloEntrada mr-2">{{ $note->name }}</h5>
             <strong class="categoria">{{ $note->type->name }}</strong>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{ url("/entrada",['image'=>$note->image]) }}" alt="Imagen Entrada" height="195" width="195"/>
+                    <img src="{{ url("/entrada",['image'=>$note->image1]) }}" alt="Imagen Entrada" height="195" width="195"/>
                 </div>
             </div>
         </div>

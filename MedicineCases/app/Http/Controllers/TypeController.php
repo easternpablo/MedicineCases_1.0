@@ -42,4 +42,19 @@ class TypeController extends Controller
             return redirect('/');
         }
     }
+
+    public function edit(Request $request, $id)
+    {
+        $category = Type::findOrFail($id);
+        $category->name = $request->input('tipoEdit');
+        if($category->save())
+            return redirect('/');
+    }
+
+    public function delete($id)
+    {
+        $category = Type::findOrFail($id);
+        if($category->delete())
+            return redirect('/');
+    }
 }
