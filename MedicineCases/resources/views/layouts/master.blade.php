@@ -59,7 +59,7 @@
 <script src="{{ asset('plugins/Jquery/js/jquery-3.5.1.js') }}"></script>
 <script src="{{ url('js/master.js') }}"></script>
 <script src="{{ asset('plugins/Bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('ckeditor_basico/ckeditor.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function () {$('.ckeditor').ckeditor();});
 </script>

@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/entrada/editar-entrada/submit/{id}', [App\Http\Controllers\NotesController::class, 'saveEdit'])->where('id','[0-9]+');
     Route::get('/entrada/inicio/delete/{id}', [App\Http\Controllers\NotesController::class, 'delete'])->where('id','[0-9]+');
     Route::get('/entrada/{filename}', [App\Http\Controllers\NotesController::class, 'getImage']);
+    Route::get('/entrada/pdf/{pdf}', [App\Http\Controllers\NotesController::class, 'download']);
     Route::get('/entrada/detalle/{id}', [App\Http\Controllers\NotesController::class, 'idDetalle'])->where('id','[0-9]+');
     // Rutas Categorías
     Route::get('/categoria/nueva-categoria', [App\Http\Controllers\TypeController::class, 'create']);

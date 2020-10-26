@@ -18,7 +18,7 @@
 </div>
 <div class="row mt-2">
     @foreach($notes as $note)
-    <div class="card text-center mt-2 ml-5" width="250" height="250">
+    <div class="card text-center mt-2 ml-2" width="250" height="250">
         <div class="card-header">
             <h5 class="tituloEntrada mr-2">{{ $note->name }}</h5>
             <strong class="categoria">{{ $note->type->name }}</strong>

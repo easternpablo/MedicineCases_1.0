@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <textarea id="cke_editor" type="text" rows="20" cols="100" class="ckeditor form-control mt-2 @error('cke_editor') is-invalid @enderror" name="cke_editor" value="{{ old('cke_editor') }}" required autocomplete="cke_editor" autofocus></textarea>
+                    <textarea id="cke_editor" type="text" rows="20" cols="20" class="ckeditor form-control mt-2 @error('cke_editor') is-invalid @enderror" name="cke_editor" value="{{ old('cke_editor') }}" required autocomplete="cke_editor" autofocus></textarea>
                     @error('cke_editor')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
                 </div>
             </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\PDF;
 
 class NotesController extends Controller
 {
@@ -37,9 +38,7 @@ class NotesController extends Controller
     {
         $note = new Note();
         $note->name = $request->input('name');
-        $textoSinHtml = strip_tags($request->input('cke_editor'));
-        $textoUTF8 = utf8_encode($textoSinHtml);
-        $note->description = str_replace('&nbsp;','',$textoUTF8);
+        $note->description = $request->input('cke_editor');
         $note->type_id = $request->get('type');
         $image_path1 = $request->file('file-note1');
         if($image_path1)
@@ -111,6 +110,13 @@ class NotesController extends Controller
             Storage::disk('notes')->put($image_name,File::get($image_path10));
             $note->image10 = $image_name;
         }
+        $pdf_path1 = $request->file('file-pdf1');
+        if($pdf_path1)
+        {
+            $pdf = time().$pdf_path1->getClientOriginalName();
+            Storage::disk('pdfs')->put($pdf,File::get($pdf_path1));
+            $note->file1 = $pdf;
+        }
         if($note->save())
             return redirect('/');
     }
@@ -155,5 +161,11 @@ class NotesController extends Controller
     {
         $file = Storage::disk('notes')->get($filename);
         return new Response($file,200);
+    }
+
+    protected function download($pdf)
+    {
+        $pdf_path = storage_path().'/app/pdfs/'.$pdf;
+        return response()->download($pdf_path);
     }
 }
