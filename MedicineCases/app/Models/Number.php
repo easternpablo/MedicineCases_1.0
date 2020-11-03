@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Role extends Model
+class Number extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $filliable = [
-        'name'
+    protected $table = 'numbers';
+
+    protected $fillable = [
+        'secret_number'
     ];
 
-    /*** Un Rol Muchos Usuarios ***/
+    /*** Un Número Secreto Muchos Administradores ***/
     public function users()
     {
         return $this->hasMany('App\Models\User');

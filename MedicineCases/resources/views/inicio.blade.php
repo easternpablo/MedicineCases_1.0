@@ -10,23 +10,21 @@
     @endforeach
     @if(Route::has('login'))
         @auth
-            @if(auth()->user()->role_id === 1)
-                <a href="{{ url('/categoria/nueva-categoria') }}" class="badge ml-2 btnAgregar">+</a>
-            @endif
+            <a href="{{ route('crearCategoria') }}" class="badge ml-2 btnAgregar">+</a>
         @endauth
     @endif
 </div>
 <div class="row mt-2">
     @foreach($notes as $note)
-    <div class="card text-center mt-2 ml-2" width="250" height="250">
+    <div class="card text-center mt-2 ml-2">
         <div class="card-header">
             <h5 class="tituloEntrada mr-2">{{ $note->name }}</h5>
-            <strong class="categoria">{{ $note->type->name }}</strong>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{ url("/entrada",['image'=>$note->image1]) }}" alt="Imagen Entrada" height="195" width="195"/>
+                    <img src="{{ url("/entrada",['image'=>$note->image1]) }}" alt="Imagen Entrada" height="200" width="200"/>
+                    <p>Fecha: <strong>{{ date("d/m/Y",strtotime($note->created_at)) }}</strong></p>
                 </div>
             </div>
         </div>
@@ -35,10 +33,8 @@
                 <a href="{{ url('/entrada/detalle',['id'=>$note->id]) }}" class="btn btn-info mt-2">Ver</a>
                 @if(Route::has('login'))
                     @auth
-                        @if(auth()->user()->role_id === 1)
-                            <a href="{{ url('/entrada/editar-entrada',['id'=>$note->id]) }}" class="btn btn-warning mt-2 ml-2">Editar</a>
-                            <a href="{{ url('/entrada/inicio/delete',['id'=>$note->id]) }}" class="btn btn-danger mt-2 ml-2">Eliminar</a>
-                        @endif
+                        <a href="{{ url('/entrada/editar',['id'=>$note->id]) }}" class="btn btn-warning mt-2 ml-2">Editar</a>
+                        <a href="{{ url('/entrada/inicio/delete',['id'=>$note->id]) }}" class="btn btn-danger mt-2 ml-2">Eliminar</a>
                     @endauth
                 @endif
             </div>
@@ -50,9 +46,7 @@
     <div class="col-6">
         @if(Route::has('login'))
             @auth
-                @if(auth()->user()->role_id === 1)
-                    <a href="{{ url('/entrada/nueva-entrada') }}" class="btn btnAgregar">Añadir Entrada</a>
-                @endif
+                <a href="{{ route('crearEntrada') }}" class="btn btnAgregar">Añadir Entrada</a>
             @endauth
         @endif
     </div>

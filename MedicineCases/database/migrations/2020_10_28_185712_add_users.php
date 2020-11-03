@@ -9,8 +9,8 @@ class AddUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('role_id')->default(1)->after('password');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('number_id')->after('password');
+            $table->foreign('number_id')->references('id')->on('numbers');
         });
     }
 

@@ -25,6 +25,7 @@ class TypeController extends Controller
                 ->join('types','notes.type_id','=','types.id')
                 ->select('notes.*')
                 ->where('notes.type_id','=',$id)
+                ->orderBy('notes.created_at','desc')
                 ->paginate(3);
         return view('categorias.filtro',['notes'=>$notes, 'type'=>$type]);
     }

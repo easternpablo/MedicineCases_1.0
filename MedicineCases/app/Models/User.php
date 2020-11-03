@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name', 'surname', 'username', 'email', 'password', 'role_id'
+        'name', 'surname', 'username', 'email', 'password', 'number_id'
     ];
 
     protected $hidden = [
@@ -23,9 +23,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Muchos Usuarios Un Rol
-    public function role()
+    // Muchos Administradores Un Número Secreto
+    public function number()
     {
-        return $this->belongsTo('App\Models\Role','role_id');
+        return $this->belongsTo('App\Models\Number','number_id');
     }
 }

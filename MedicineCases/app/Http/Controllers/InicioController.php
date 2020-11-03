@@ -12,7 +12,7 @@ class InicioController extends Controller
     public function index()
     {
         $categories = Type::all();
-        $notes = Note::with('type')->orderBy('id','desc')->simplePaginate(4);
+        $notes = Note::with('type')->orderBy('id','desc')->simplePaginate(3);
         return view('inicio', ['categories'=>$categories, 'notes'=>$notes]);
     }
 }

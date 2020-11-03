@@ -22,7 +22,7 @@
     @if(Route::has('login'))
         @auth
             <p class="text-white font-weight-bold text-uppercase px-3 small pb-4 mb-0">
-                Bienvenido: {{ auth()->user()->username }} <i class="fas fa-user-md fa-2x white"></i>
+            {{ auth()->user()->username }} <i class="fas fa-user-md fa-2x white"></i>
             </p>
         @endauth
     @endif
@@ -39,14 +39,22 @@
             <a href="{{ url('/contacto') }}" class="nav-link text-white font-italic">
             <i class="fas fa-at fa-1x mr-1"></i>Contacto</a>
         </li>
-        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
-            <form action="{{ url('/logout') }}" method="POST" style="display:inline">
-                @csrf
-                <button type="submit" class="btn btn-link nav-link text-bold text-white" >
-                    <i class="fas fa-power-off fa-1x"></i> Cerrar sesión
-                </button>
-            </form>
-        </p>
+        <li class="nav-item">
+            <a href="{{ route('login') }}" class="nav-link text-white font-italic">
+            <i class="fas fa-user-cog fa-1x mr-1"></i>Administrador</a>
+        </li>
+        @if(Route::has('login'))
+            @auth
+            <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
+                <form action="{{ url('/logout') }}" method="POST" style="display:inline">
+                    @csrf
+                    <button type="submit" class="btn btn-link nav-link text-bold text-white">
+                        <i class="fas fa-power-off fa-1x"></i> Cerrar Sesión
+                    </button>
+                </form>
+            </p>
+            @endauth
+        @endif
     </ul>
 </div>
 <div class="page-content p-5" id="content">
@@ -60,8 +68,6 @@
 <script src="{{ url('js/master.js') }}"></script>
 <script src="{{ asset('plugins/Bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('ckeditor_basico/ckeditor.js') }}"></script>
-<script type="text/javascript">
-    $(document).ready(function () {$('.ckeditor').ckeditor();});
-</script>
+<script type="text/javascript">$(document).ready(function () {$('.ckeditor').ckeditor();});</script>
 </body>
 </html>

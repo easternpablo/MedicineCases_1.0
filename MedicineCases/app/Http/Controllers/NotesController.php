@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use Barryvdh\DomPDF\PDF;
 
 class NotesController extends Controller
 {
@@ -116,6 +115,13 @@ class NotesController extends Controller
             $pdf = time().$pdf_path1->getClientOriginalName();
             Storage::disk('pdfs')->put($pdf,File::get($pdf_path1));
             $note->file1 = $pdf;
+        }
+        $pdf_path2 = $request->file('file-pdf2');
+        if($pdf_path2)
+        {
+            $pdf = time().$pdf_path2->getClientOriginalName();
+            Storage::disk('pdfs')->put($pdf,File::get($pdf_path2));
+            $note->file2 = $pdf;
         }
         if($note->save())
             return redirect('/');

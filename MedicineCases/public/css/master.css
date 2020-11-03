@@ -10,6 +10,16 @@
     transition: all 0.4s;
 }
 
+/** LOGIN **/
+#barraNavegacion {background-color: rgba(5, 2, 78) !important;}
+button.navbar-toggler {background-color: #fff;}
+body {
+    background-image: url("../img/ucifondo.jpg");
+    background-color: rgba(0,0,0,0.7);
+    background-size: cover;
+    opacity: 0.9;
+}
+/***********/
 h2{
     background-color: rgba(5, 2, 78);
     color: white;
@@ -25,6 +35,7 @@ i.fa-linkedin {color: #007bb5;}
 i.fa-youtube-square {color: #E00E0B;}
 i.fa-map-marker-alt {color: #0D9DBD;}
 i.fa-file-download {color: #E00E0B;}
+i.fa-heartbeat {color: #fff;}
 
 p{color: black;}
 

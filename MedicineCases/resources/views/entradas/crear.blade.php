@@ -6,7 +6,7 @@
 <div class="card mt-5">
     <div class="card-header">{{ __('Nueva Entrada') }}</div>
     <div class="card-body">
-        <form method="POST" action="{{ url('/entrada/nueva-entrada/submit') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('guardarEntrada') }}" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <label for="name" class="col-form-label text-md-right">{{ __('Nombre*') }}</label>
