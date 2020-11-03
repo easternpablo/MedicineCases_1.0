@@ -46,69 +46,6 @@ class NotesController extends Controller
             Storage::disk('notes')->put($image_name,File::get($image_path1));
             $note->image1 = $image_name;
         }
-        $image_path2 = $request->file('file-note2');
-        if($image_path2)
-        {
-            $image_name = time().$image_path2->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path2));
-            $note->image2 = $image_name;
-        }
-        $image_path3 = $request->file('file-note3');
-        if($image_path3)
-        {
-            $image_name = time().$image_path3->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path3));
-            $note->image3 = $image_name;
-        }
-        $image_path4 = $request->file('file-note4');
-        if($image_path4)
-        {
-            $image_name = time().$image_path4->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path4));
-            $note->image4 = $image_name;
-        }
-        $image_path5 = $request->file('file-note5');
-        if($image_path5)
-        {
-            $image_name = time().$image_path5->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path5));
-            $note->image5 = $image_name;
-        }
-        $image_path6 = $request->file('file-note6');
-        if($image_path6)
-        {
-            $image_name = time().$image_path6->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path6));
-            $note->image6 = $image_name;
-        }
-        $image_path7 = $request->file('file-note7');
-        if($image_path7)
-        {
-            $image_name = time().$image_path7->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path7));
-            $note->image7 = $image_name;
-        }
-        $image_path8 = $request->file('file-note8');
-        if($image_path8)
-        {
-            $image_name = time().$image_path8->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path8));
-            $note->image8 = $image_name;
-        }
-        $image_path9 = $request->file('file-note9');
-        if($image_path9)
-        {
-            $image_name = time().$image_path9->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path9));
-            $note->image9 = $image_name;
-        }
-        $image_path10 = $request->file('file-note10');
-        if($image_path10)
-        {
-            $image_name = time().$image_path10->getClientOriginalName();
-            Storage::disk('notes')->put($image_name,File::get($image_path10));
-            $note->image10 = $image_name;
-        }
         $pdf_path1 = $request->file('file-pdf1');
         if($pdf_path1)
         {

@@ -13,21 +13,7 @@ class Note extends Model
     protected $table = 'notes';
 
     protected $fillable = [
-        'name',
-        'description',
-        'image1',
-        'image2',
-        'image3',
-        'image4',
-        'image5',
-        'image6',
-        'image7',
-        'image8',
-        'image9',
-        'image10',
-        'file1',
-        'file2',
-        'type_id',
+        'name', 'description', 'image1', 'file1', 'file2', 'type_id'
     ];
 
     // Muchas Entradas Una Categoria
