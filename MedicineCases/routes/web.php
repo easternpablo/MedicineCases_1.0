@@ -22,8 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Rutas Categorías
     Route::get('/categoria/nueva', [App\Http\Controllers\TypeController::class, 'create'])->name('crearCategoria');
     Route::post('/categoria/nueva/submit', [App\Http\Controllers\TypeController::class, 'save'])->name('guardarCategoria');
-    Route::post('/categoria/filtro/submit/{id}', [App\Http\Controllers\TypeController::class, 'edit'])->where('id','[0-9]+');
-    Route::get('/categoria/filtro/delete/{id}', [App\Http\Controllers\TypeController::class, 'delete'])->where('id','[0-9]+');
+    Route::post('/categoria/filtro/submit/{id}', [App\Http\Controllers\TypeController::class, 'edit'])->name('updateCategoria')->where('id','[0-9]+');
+    Route::get('/categoria/filtro/delete/{id}', [App\Http\Controllers\TypeController::class, 'delete'])->name('borrarCategoria')->where('id','[0-9]+');
 });
 // Ruta Entrada
 Route::get('/entrada/detalle/{id}', [App\Http\Controllers\NotesController::class, 'idDetalle'])->where('id','[0-9]+');

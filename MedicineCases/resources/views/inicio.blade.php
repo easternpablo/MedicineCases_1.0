@@ -10,7 +10,7 @@
     @endforeach
     @if(Route::has('login'))
         @auth
-            <a href="{{ route('crearCategoria') }}" class="badge ml-2 btnAgregar">+</a>
+            <a href="{{ route('crearCategoria') }}" class="badge badge-secondary btnAgregar ml-3">+</a>
         @endauth
     @endif
 </div>

@@ -5,14 +5,15 @@
 <h2 class="display-4 text-center">{{ $type->name }}</h2>
 @if(Route::has('login'))
     @auth
-        <form class="row mt-5" method="POST" action="{{ url('/categoria/filtro/submit',['id'=>$type->id]) }}">
+        <form class="row mt-5" method="POST" action="{{ route('updateCategoria',['id'=>$type->id]) }}">
+            @csrf
             <div class="col-6">
                 <input id="tipoEdit" type="text" class="form-control mt-2 @error('tipoEdit') is-invalid @enderror" name="tipoEdit" value="{{ $type->name }}" required autocomplete="tipoEdit" autofocus>
             </div>
             <div class="col-6">
                 <div class="btn-group" role="group">
                     <button type="submit" name="submit" class="btn btn-warning mt-2">{{ __('Actualizar') }}</button>
-                    <a href="{{ url('/categoria/filtro/delete',['id'=>$type->id]) }}" class="btn btn-danger mt-2 ml-2">Eliminar</a>
+                    <a href="{{ route('borrarCategoria',['id'=>$type->id]) }}" class="btn btn-danger mt-2 ml-2">Eliminar</a>
                 </div>
             </div>
         </form>

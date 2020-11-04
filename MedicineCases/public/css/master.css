@@ -39,6 +39,11 @@ i.fa-heartbeat {color: #fff;}
 
 p{color: black;}
 
+.card{
+    height: 390px;
+    min-height: 395px;
+}
+
 .badge, .btnAgregar{
     background-color: rgba(5, 2, 78);
     color: white;
@@ -69,20 +74,10 @@ h5.tituloEntrada{font-family: 'Monofett', cursive;}
 button #sidebarCollapse{background-color: rgba(5, 2, 78);}
 
 @media (max-width: 768px) {
-    #sidebar {
-      margin-left: -17rem;
-    }
-    #sidebar.active {
-      margin-left: 0;
-    }
-    #content {
-      width: 100%;
-      margin: 0;
-    }
-    #content.active {
-      margin-left: 17rem;
-      width: calc(100% - 17rem);
-    }
+    #sidebar {margin-left: -17rem;}
+    #sidebar.active {margin-left: 0;}
+    #content {width: 100%;margin: 0;}
+    #content.active {margin-left: 17rem;width: calc(100% - 17rem);}
 }
 
 body {
