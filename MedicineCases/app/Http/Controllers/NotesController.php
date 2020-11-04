@@ -79,15 +79,37 @@ class NotesController extends Controller
     {
         $note = Note::findOrFail($id);
         $note->name = $request->input('name');
-        $note->description = $request->input('description');
+        $note->description = $request->input('cke_editor');
         $note->type_id = $request->get('type');
         $image_path = $request->file('file-note');
         if($image_path === null){
-            $note->image = $request->input('file-note-cambio');
-        }else{
+            $note->image1 = $request->input('file-note-cambio');
+        }
+        else
+        {
             $image_name = time().$image_path->getClientOriginalName();
             Storage::disk('notes')->put($image_name,File::get($image_path));
-            $note->image = $image_name;
+            $note->image1 = $image_name;
+        }
+        $file_pdf1 = $request->file('file-pdf1');
+        if($file_pdf1 === null){
+            $note->file1 = $request->input('file-pdf-cambio1');
+        }
+        else
+        {
+            $pdf = time().$file_pdf1->getClientOriginalName();
+            Storage::disk('pdfs')->put($pdf,File::get($file_pdf1));
+            $note->file1 = $pdf;
+        }
+        $file_pdf2 = $request->file('file-pdf2');
+        if($file_pdf2 === null){
+            $note->file2 = $request->input('file-pdf-cambio2');
+        }
+        else
+        {
+            $pdf = time().$file_pdf2->getClientOriginalName();
+            Storage::disk('pdfs')->put($pdf,File::get($file_pdf2));
+            $note->file2 = $pdf;
         }
         if($note->save())
             return redirect('/');

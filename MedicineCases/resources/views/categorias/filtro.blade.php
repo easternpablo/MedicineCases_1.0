@@ -20,7 +20,7 @@
 @endif
 <div class="row">
     @foreach($notes as $note)
-    <div class="card text-center ml-3 mt-5">
+    <div class="card text-center ml-1 mt-5">
         <div class="card-header">
             <h5 class="tituloEntrada mr-2">{{ $note->name }}</h5>
         </div>
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-12">
                     <img src="{{ url("/entrada",['image'=>$note->image1]) }}" alt="Imagen Entrada" height="200" width="200"/>
-                    <p>Fecha: <strong>{{ date("d/m/Y",strtotime($note->created_at)) }}</strong></p>
+                    <p><small>Ultima Actualización: <strong>{{ date("d/m/Y H:i",strtotime($note->updated_at)) }}</strong></small></p>
                 </div>
             </div>
         </div>

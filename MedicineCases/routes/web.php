@@ -16,8 +16,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Rutas Entradas
     Route::get('/entrada/nueva', [App\Http\Controllers\NotesController::class, 'create'])->name('crearEntrada');
     Route::post('/entrada/nueva/submit', [App\Http\Controllers\NotesController::class, 'save'])->name('guardarEntrada');
-    Route::get('/entrada/editar/{id}', [App\Http\Controllers\NotesController::class, 'edit'])->where('id','[0-9]+');
-    Route::post('/entrada/editar/submit/{id}', [App\Http\Controllers\NotesController::class, 'saveEdit'])->where('id','[0-9]+');
+    Route::get('/entrada/editar/{id}', [App\Http\Controllers\NotesController::class, 'edit'])->name('editarEntrada')->where('id','[0-9]+');
+    Route::post('/entrada/editar/submit/{id}', [App\Http\Controllers\NotesController::class, 'saveEdit'])->name('updateEntrada')->where('id','[0-9]+');
     Route::get('/entrada/inicio/delete/{id}', [App\Http\Controllers\NotesController::class, 'delete'])->where('id','[0-9]+');
     // Rutas Categorías
     Route::get('/categoria/nueva', [App\Http\Controllers\TypeController::class, 'create'])->name('crearCategoria');
